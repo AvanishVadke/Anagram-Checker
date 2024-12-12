@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome Check app by Avanish</title>
+    <style>
+      * {
+        font-size: 40px;
+        font-family: sans-serif;
+      }
+      body {
+        background-color: black;
+        color: white;
+      }
+      .btn {
+        width: 20%;
+        border-radius: 15px;
+        background-color: rgb(47, 255, 255);
+      }
+      .btn:hover {
+        background-color: rgb(0, 255, 110);
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Sorting word</h1>
+      <form onsubmit="sort()">
+        <input type="text" id="str1" placeholder="Enter a string" />
+        <br />
+        <br />
+        <input type="text" id="str2" placeholder="Enter another string" />
+        <br />
+        <br />
+        <input type="submit" value="Check" class="btn" />
+      </form>
+      <h2 id="msg" style="font-size: 30px"></h2>
+      <script>
+        function sort() {
+          event.preventDefault();
+          let str1 = document.getElementById("str1");
+          let str2 = document.getElementById("str2");
+          let msg = document.getElementById("msg");
+
+          if (str1.value === "") {
+            alert("Enter a String ");
+            msg.innerHTML = "";
+            str1.focus();
+            return;
+          }
+          if (str2.value === "") {
+            alert("Enter a String ");
+            msg.innerHTML = "";
+            str2.focus();
+            return;
+          }
+
+          ogStr1 = str1.value;
+          sortStr1 = ogStr1.split("").sort().join("");
+
+          ogStr2 = ogStr2.value;
+          sortStr2 = ogStr2.split("").sort().join("");
+
+          ans =
+            sortStr1 === sortStr2
+              ? ogStr1 + " and " + ogStr2 + " are Anagrams"
+              : ogStr1 + " and " + ogStr2 + " are not Anagrams";
+
+          sortStr1 === sortStr2
+            ? (msg.style.color = "green")
+            : (msg.style.color = "red");
+
+          msg.innerHTML = ans;
+        }
+      </script>
+    </center>
+  </body>
+</html>
